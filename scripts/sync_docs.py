@@ -16,20 +16,25 @@ FILES = {'product-requirements.md': '行业调研Agent_产品需求文档.md',
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--target', type=Path)
+    parser.add_argument('--source', type=Path, help='private source directory outside this public repository')
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args()
-    target = args.target
-    if target is None:
-        settings = ROOT / '.obsidian-sync.json'
-        if not settings.exists():
-            parser.error('Pass --target or configure .obsidian-sync.json with a target path.')
-        target = Path(json.loads(settings.read_text())['target'])
+    settings_path = ROOT / '.obsidian-sync.json'
+    settings = json.loads(settings_path.read_text()) if settings_path.exists() else {}
+    target_value = args.target or settings.get('target')
+    source_value = args.source or settings.get('source')
+    if not target_value or not source_value:
+        parser.error('Configure explicit private source and target directories; project documents must stay outside the public repository.')
+    target = Path(target_value)
+    source = Path(source_value).expanduser().resolve()
+    if source == ROOT or ROOT in source.parents:
+        parser.error('Private source must be outside the public repository.')
     target = target.expanduser().resolve()
     if not args.check:
         target.mkdir(parents=True, exist_ok=True)
     failed = []
     for source_name, destination_name in FILES.items():
-        contents = (ROOT / 'docs' / source_name).read_bytes()
+        contents = (source / source_name).read_bytes()
         destination = target / destination_name
         matches = destination.is_file() and destination.read_bytes() == contents
         if not matches and args.check:

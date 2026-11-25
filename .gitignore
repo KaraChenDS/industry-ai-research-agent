@@ -9,3 +9,7 @@ data/
 exports/
 *.log
 .obsidian-sync.json
+private-docs/
+docs/product-requirements.md
+docs/agent-strategy.md
+docs/whitepaper.md
