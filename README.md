@@ -8,10 +8,14 @@
 
 ## 立即体验
 
+- [在线只读 Demo](https://karachends.github.io/industry-ai-research-agent/)
 - [打开仓库内静态 Demo 页面](docs/index.html)：下载仓库后可直接用浏览器打开，无需启动服务；启用GitHub Pages的`main /docs`后可公开浏览。
 - [阅读创业团队 Demo 研究报告](docs/demo-report.md)
 - [查看研究方法与产品设计](docs/research-design.md)
 - [查看架构与验证范围](docs/architecture.md)
+- [产品需求文档](docs/product-requirements.md) · [策略设计文档](docs/agent-strategy.md) · [白皮书](docs/whitepaper.md)
+
+三份文档使用固定文件名，随需求、策略和验证结果持续维护。运行`python3 scripts/sync_docs.py --target "你的文档目录"`同步到指定本地目录，用`--check`校验一致性。目录配置可保存在被Git忽略的`.obsidian-sync.json`中，格式为`{"target":"绝对路径"}`。
 
 ### 完整本地工具：无第三方依赖
 
