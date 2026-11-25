@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fieldnote · 行业AI应用研究</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<aside>
+  <a class="brand" href="#overview"><span class="brand-mark">f.</span><span>Fieldnote<small>行业 AI 应用研究</small></span></a>
+  <div class="nav-label">RESEARCH WORKSPACE</div>
+  <nav aria-label="研究工作区">
+    <button data-view="overview">01 <span>研究简报</span></button>
+    <button data-view="evidence">02 <span>证据与资料</span></button>
+    <button data-view="scenarios">03 <span>场景特征</span></button>
+    <button data-view="fieldwork">04 <span>问卷与访谈</span></button>
+    <button data-view="analysis">05 <span>样本分析</span></button>
+    <button data-view="report">06 <span>研究报告</span></button>
+  </nav>
+  <div class="aside-bottom"><span class="dot"></span> Evidence before conclusions<p>从真实任务里，理解 AI 怎样被使用。</p><a href="https://github.com/KaraChenDS/industry-ai-research-agent" target="_blank" rel="noopener">查看 GitHub ↗</a></div>
+</aside>
+<main>
+  <header><div class="breadcrumb">工作区 <span>/</span> <span id="current-title">载入中</span></div><div class="header-actions"><select id="projects" aria-label="切换研究项目"></select><button class="secondary" id="new-project">＋ 新建研究</button></div></header>
+  <div id="notice" role="status"></div>
+  <section id="content" aria-live="polite"></section>
+  <footer>Fieldnote / 研究证据可追溯，结论允许被修正。 <span>v0.1 · Research preview</span></footer>
+</main>
+<dialog id="new-dialog"><form id="new-form"><div class="eyebrow">NEW RESEARCH</div><h2>从一个明确的范围开始</h2><label>研究主题<input name="title" required placeholder="例如：设计工作室的AI应用现状"></label><label>地区<input name="region" value="中国大陆"></label><label>目标群体与规模<input name="segment" placeholder="例如：5—20人设计工作室，负责人和设计师" required></label><div class="actions"><button type="button" class="secondary" onclick="document.querySelector('dialog').close()">取消</button><button>创建研究</button></div></form></dialog>
+<script src="app.js"></script>
+</body></html>

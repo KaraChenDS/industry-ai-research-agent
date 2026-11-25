@@ -1,0 +1,337 @@
+{
+  "project": {
+    "scope": {
+      "title": "小型创业公司办公场景",
+      "region": "中国大陆（待确认）",
+      "segment": "5—50人知识工作型创业团队",
+      "as_of": "2026-11-25",
+      "demo": true,
+      "goal": "掌握真实AI应用的使用流程、决策因素、行业策略和用户心理，形成可追溯的场景特征。"
+    },
+    "sources": [
+      {
+        "id": "S1",
+        "title": "OECD · Generative AI and the SME Workforce",
+        "kind": "public_research",
+        "date": "2025-11-05",
+        "accessed": "2026-11-25",
+        "url": "https://www.oecd.org/en/publications/generative-ai-and-the-sme-workforce_2d08b99d-en/full-report/component-4.html",
+        "population": "OECD所调查地区的中小企业；并非中国创业公司办公专项样本",
+        "note": "调查显示生成式AI已用于部分中小企业，知识、专业及行政工作是值得进一步考察的方向。",
+        "limits": "只能用于提出任务线索；不能证明本研究目标人群的采用率和使用流程。"
+      },
+      {
+        "id": "S2",
+        "title": "U.S. Chamber · 2026 Empowering Small Business Report",
+        "kind": "public_research",
+        "date": "2026-10-02",
+        "accessed": "2026-11-25",
+        "url": "https://www.uschamber.com/technology/2026-empowering-small-business-report",
+        "population": "美国小企业；网页摘要，完整抽样及AI定义需进一步核对",
+        "note": "发布方摘要称66%的美国小企业使用AI。此数字仅作为该报告口径下的背景，不作为中国5—50人创业团队的数据。",
+        "limits": "美国小企业不等于创业公司；摘要不能替代方法审查；相关性不能证明AI导致增长。"
+      },
+      {
+        "id": "S3",
+        "title": "Anthropic Economic Index · Software development",
+        "kind": "vendor_research",
+        "date": "2025-04-28",
+        "accessed": "2026-11-25",
+        "url": "https://www.anthropic.com/research/impact-software-development",
+        "population": "Claude.ai与Claude Code编码相关交互；分析单位是对话，不是企业",
+        "note": "厂商研究观察到编码任务中的自动化与协作方式差异，并对创业相关工作作初步分类。",
+        "limits": "单厂商、编码任务、对话样本；不能推断所有创业团队或所有办公任务的使用比例。"
+      },
+      {
+        "id": "S4",
+        "title": "GOV.UK · Contextual research and observation",
+        "kind": "method",
+        "date": "未标注",
+        "accessed": "2026-11-25",
+        "url": "https://www.gov.uk/service-manual/user-research/contextual-research-and-observation",
+        "population": "用户研究方法，不是AI采用情况调查",
+        "note": "建议观察人们在熟悉环境中，使用自己的设备与材料完成活动，再追问不清楚的过程。",
+        "limits": "只支持研究方法选择，不能用作行业使用现状证据。"
+      }
+    ],
+    "scenarios": [
+      {
+        "name": "知识检索与任务交接",
+        "role": "项目负责人 / 新成员",
+        "trigger": "接手项目，需要确认当前结论与责任人",
+        "workflow": [
+          "收集文档与消息",
+          "AI提取候选结论",
+          "核对时间、出处与权限",
+          "向负责人确认后交接"
+        ],
+        "decision": "待问：来源可靠、更新及时、是否接入现有协作工具，哪个因素真正影响选择？",
+        "strategy": "待问：由个人试用还是团队统一采购？文档权限与知识维护由谁负责？",
+        "psychology": "假设：用户可能担心拿到过时结论；需以最近一次错误交接事件及本人表述核对。",
+        "counterexample": "资料少、负责人随时可问时，AI检索可能不如直接沟通。",
+        "next_step": "请2个团队展示一次真实交接；比较原方法与AI方法的核对成本。",
+        "evidence_ids": [
+          "S1"
+        ],
+        "status": "待验证假设",
+        "psychology_status": "尚无本人表述证据"
+      },
+      {
+        "name": "对外内容与方案交付",
+        "role": "运营 / 销售 / 创始人",
+        "trigger": "要向客户或公众提交材料",
+        "workflow": [
+          "确认对象与目标",
+          "整理获准使用的业务材料",
+          "AI起草",
+          "人工核实事实和语气",
+          "审批与发布"
+        ],
+        "decision": "待问：交付质量、事实准确、修改次数、价格和协作便利性如何影响决定？",
+        "strategy": "待问：是否有品牌规范、审批者与客户资料使用约定？",
+        "psychology": "假设：用户可能同时希望提速并保持专业辨识度；不能据此给用户贴心理标签。",
+        "counterexample": "信息核实和修改耗时可能抵消起草速度。",
+        "next_step": "拿3份脱敏交付物，事先约定质量标准，记录准备、生成、修改与审批总耗时。",
+        "evidence_ids": [
+          "S1",
+          "S2"
+        ],
+        "status": "待验证假设",
+        "psychology_status": "尚无本人表述证据"
+      },
+      {
+        "name": "经营数据解读与汇报",
+        "role": "创始人 / 运营负责人",
+        "trigger": "需要解释一段时间的经营变化",
+        "workflow": [
+          "明确指标定义",
+          "导出获准使用的数据",
+          "清洗和计算",
+          "AI提出解释候选",
+          "回查数字与业务事件",
+          "决定下一步动作"
+        ],
+        "decision": "待问：可复算、可追溯、数据接入和解释可信度是否影响使用？",
+        "strategy": "待问：是否允许上传数据？谁维护指标口径、谁承担错误决策责任？",
+        "psychology": "假设：负责人可能担心“看似合理但无法验证”的解释；需要真实决策事件。",
+        "counterexample": "口径混乱时，AI可能放大错误；简单固定报表可能更合适。",
+        "next_step": "获取一份脱敏表及指标说明，对照人工计算，记录错误与检查成本。",
+        "evidence_ids": [
+          "S1"
+        ],
+        "status": "待验证假设",
+        "psychology_status": "尚无本人表述证据"
+      },
+      {
+        "name": "内部轻量工具与原型",
+        "role": "产品 / 技术 / 创始人",
+        "trigger": "有一个小任务想通过内部工具完成",
+        "workflow": [
+          "定义任务与完成标准",
+          "AI辅助生成原型",
+          "用实际样例试跑",
+          "人工检查错误与数据处理",
+          "选择继续维护或放弃"
+        ],
+        "decision": "待问：试做速度之外，维护成本与实际可用性是否决定继续使用？",
+        "strategy": "待问：谁能发布、谁负责维护、何时用现成产品替代自建？",
+        "psychology": "假设：非技术成员可能期待自主完成，也担心无法定位错误；需区分岗位和经历。",
+        "counterexample": "厂商编码对话中的现象不能直接推广到非技术办公人员。",
+        "next_step": "对照技术与非技术成员各一次真实尝试，记录成功、返工和放弃原因。",
+        "evidence_ids": [
+          "S3"
+        ],
+        "status": "待验证假设",
+        "psychology_status": "尚无本人表述证据"
+      }
+    ],
+    "plan": [
+      {
+        "task": "界定样本边界",
+        "method": "研究简报",
+        "hours": 0.5,
+        "done": "确认地区、团队规模、业务类型、岗位与研究时段",
+        "status": "待执行"
+      },
+      {
+        "task": "搜集通用与行业资料",
+        "method": "桌面调研",
+        "hours": 2,
+        "done": "记录来源、日期、样本口径、适用范围及反例；相同报告不重复算独立证据",
+        "status": "部分完成"
+      },
+      {
+        "task": "分层招募6人",
+        "method": "目的抽样",
+        "hours": 1,
+        "done": "4位一线、1位负责人、1位实施者；覆盖持续使用/放弃/未使用；至少3个团队",
+        "status": "待执行"
+      },
+      {
+        "task": "访谈并观察工作",
+        "method": "30分钟事件访谈＋脱敏演示",
+        "hours": 4,
+        "done": "6份记录，区分口述与直接观察，保留原始证据编号",
+        "status": "待执行"
+      },
+      {
+        "task": "分析场景与反例",
+        "method": "跨案例对照",
+        "hours": 1,
+        "done": "覆盖流程、决策、策略、心理；列出相同任务的成功与失败条件",
+        "status": "待执行"
+      },
+      {
+        "task": "单任务对比验证",
+        "method": "3—5份真实任务样例",
+        "hours": 2,
+        "done": "预先约定质量标准，对比原流程与AI流程全部成本；不外推稳定性",
+        "status": "待执行"
+      }
+    ],
+    "instruments": {
+      "title": "小型创业公司办公场景 · AI应用行为筛选表",
+      "intro": "约5分钟。仅用于研究，自愿参加，可跳过非必填题。请勿填写姓名、客户信息、商业秘密。回答仅保存在你下载的文件里，需由你主动交给研究者。",
+      "questions": [
+        {
+          "id": "consent",
+          "label": "是否同意将以下脱敏回答用于本次调研？",
+          "type": "select",
+          "options": [
+            "同意",
+            "不同意"
+          ],
+          "required": true
+        },
+        {
+          "id": "respondent_id",
+          "label": "匿名编号（例如团队A-01，不填写真实姓名）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "organization_id",
+          "label": "团队匿名编号（同团队成员请填写相同编号）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "role",
+          "label": "你的主要岗位或职责",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "team_size",
+          "label": "团队人数",
+          "type": "select",
+          "options": [
+            "1—4",
+            "5—10",
+            "11—20",
+            "21—50",
+            "51以上"
+          ],
+          "required": true
+        },
+        {
+          "id": "ai_status",
+          "label": "过去两周，你在工作中使用AI的情况",
+          "type": "select",
+          "options": [
+            "持续使用",
+            "偶尔使用",
+            "尝试后放弃",
+            "未使用"
+          ],
+          "required": true
+        },
+        {
+          "id": "recent_task",
+          "label": "最近一次具体工作任务是什么？当时需要交付什么？",
+          "type": "textarea"
+        },
+        {
+          "id": "workflow",
+          "label": "从收到任务到交付，依次做了什么？哪些步骤用AI，哪些自己做？",
+          "type": "textarea"
+        },
+        {
+          "id": "decision",
+          "label": "最近一次选择或放弃某个AI工具，主要考虑什么？谁决定购买？",
+          "type": "textarea"
+        },
+        {
+          "id": "strategy",
+          "label": "团队是否有工具、预算、数据使用、验收方面的约定？请举例；没有可填没有。",
+          "type": "textarea"
+        },
+        {
+          "id": "psychology",
+          "label": "最近一次使用或不用AI时，你最在意什么？发生了什么具体情况？",
+          "type": "textarea"
+        },
+        {
+          "id": "baseline_min",
+          "label": "同类任务原来总耗时（分钟，不清楚可留空）",
+          "type": "number"
+        },
+        {
+          "id": "ai_total_min",
+          "label": "使用AI后的全部耗时，含准备、检查、修改（分钟，不清楚可留空）",
+          "type": "number"
+        },
+        {
+          "id": "quality_pass",
+          "label": "AI辅助后的交付是否达到原有标准？",
+          "type": "select",
+          "options": [
+            "",
+            "是",
+            "否",
+            "不清楚"
+          ]
+        },
+        {
+          "id": "failure",
+          "label": "最近一次失败、返工或放弃AI的例子，以及最后如何完成任务",
+          "type": "textarea"
+        }
+      ],
+      "interview": [
+        "0—5分钟：确认团队、岗位和近两周任务，选择最近一次具体任务。",
+        "5—15分钟：请展示获准使用的脱敏材料，逐步复盘输入、操作、AI交互、人工修改和最终交付。",
+        "15—20分钟：追问谁推荐、谁使用、谁采购、谁验收；为什么选择或放弃；比较现有替代办法。",
+        "20—25分钟：询问团队预算、协作和数据规则如何影响选择；用具体事件追问担忧与期待，不代替用户解释心理。",
+        "25—30分钟：核对总耗时、质量、失败例子；询问能否提供脱敏样例并约下一次任务复测。"
+      ]
+    },
+    "rows": [],
+    "analysis": {
+      "n": 0,
+      "organizations": 0,
+      "excluded_no_consent": 0,
+      "status_counts": {},
+      "status_denominator": 0,
+      "paired_quality_pass_n": 0,
+      "mean_saved_minutes": null,
+      "limits": "自愿参与的便利样本；按受访者统计使用状态，非企业渗透率。耗时为自报配对数据，仅纳入质量达标且两项耗时完整的回答；不证明因果关系或行业ROI。"
+    },
+    "runs": [],
+    "interpretation": "公开材料支持“值得研究中小团队的知识工作及人机协作”这一方向 [S1][S3]。美国小企业报告提供异地背景 [S2]，不能代替中国创业团队的现状数据。当前真实访谈与问卷样本均为0；以下场景是研究者提出的待验证假设，尚未确认使用频率、采购动机或心理。",
+    "id": "startup-office-public-demo"
+  },
+  "projects": [
+    {
+      "id": "startup-office-public-demo",
+      "title": "小型创业公司办公场景"
+    }
+  ],
+  "config": {
+    "model_configured": false,
+    "search_configured": false,
+    "model": "",
+    "max_rounds": 6,
+    "search_budget": 3
+  }
+}
